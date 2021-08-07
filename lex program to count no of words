@@ -1,0 +1,21 @@
+%{
+#include<stdio.h>
+#include<string.h>
+int i=0;
+%}
+
+%%
+([a-z]|[A-Z][0-9])*  {i++; }
+"\n"   {printf("%d\n",i);i=0;}
+%%
+
+main()
+{
+yylex();
+return 0;
+}
+
+int yywrap()
+{
+return 0;
+}
